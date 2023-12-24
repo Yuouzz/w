@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>awq</title>
+</head>
+<html>
+    <body>  
+        <script>
+            var pressed = false;
+            function update()
+            {
+                if (pressed != true)
+                    {
+                    var today = new Date();
+                    var finalday = new Date();
+                    finalday.setFullYear(2023/12/16);
+                    var hour = today.getHours();
+                    var minute = today.getMinutes();
+                    var second = today.getSeconds();
+                    var text = hour + " " + minute + " " + second;
+                    document.getElementById('demo').innerHTML = text;
+                    setTimeout("update()", 1000);
+                    }
+            }
+            update();
+            
+            function myfunction()
+            {
+                var name = document.forms['myform']['name'].value;
+                var age = document.forms['myform']['age'].value;
+                if (name.length < 5 || age.length < 5)
+                {
+                document.getElementById('demo').innerHTML = "Error";
+                console.log(name);
+                }
+                else
+                {
+                    document.getElementById('demo').innerHTML = "OK";
+                }
+            }
+        </script>
+
+        <p id="demo">
+                oo
+        </p>
+        <form  name="myform" action="welcome.php" method="post" id="theform">
+            <p>Name:<input type="text" name="name" onkeyup="myfunction()"></p>
+            <p>Age:<input type="text" name="age"  onkeyup="myfunction()"></p>
+            <p><input type="submit" value="提交"></p>
+        </form>
+        <button onclick="update()">点我</button>
+        <button onclick="update()">点我</button>
+
+
+    </body>
+</html>
